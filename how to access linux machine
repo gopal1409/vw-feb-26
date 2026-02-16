@@ -1,0 +1,9 @@
+##in the jump machine or the windows vm 
+##open powershell
+ssh lab-user@lab-as-25382.lc.cl-labs.springpeople.com
+  ###the press enter 
+  ##password
+  Welcome@123
+####after that we need to be an privilage user or root user
+sudo -i
+  #if it ask for the password Welcome@123
