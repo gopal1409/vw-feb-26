@@ -1,0 +1,25 @@
+
+#update the linux systemt
+  33  apt-get update
+  #jenkins required default java
+   34  apt install default-jdk
+   35  wget -O /etc/apt/keyrings/jenkins-keyring.asc   https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key
+   36  echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]"   https://pkg.jenkins.io/debian-stable binary/ | sudo tee   /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+   38  apt-get update
+   39  apt install jenkins
+     #once installation complete you can see the jenkins server is running
+   40  systemctl status jenkins
+     #press q to come out of the terminal#
+     #once finish installing jenkins #you can access the same using browser
+     ##copy the dns of the linux machine with port 8080
+     ##replace the dns name with your linux machine dns
+     http://lab-as-25382.lc.cl-labs.springpeople.com:8080/
+     #this will show unlock jenkins
+     #3in the terminal put this 
+      42  cat /var/lib/jenkins/secrets/initialAdminPassword
+###copy the output paste it in the browser
+     ##select installed sugested plugin
+     #after that create a username and password please do not forget the username and password
+     #click on save an continue
+     
