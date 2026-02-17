@@ -37,3 +37,24 @@ pipeline {
         }
     }
 }
+#####lets update the pipeline do not rpelace line 6. in maven build stage replace line 51 in test stage replae line 56 
+pipeline {
+    agent any
+    stages {
+        stage ('code from scm') {
+            steps {
+                git credentialsId: 'git-key', url: 'git@github.com:gopal1409/vw-feb-26-spring-hello.git'
+            }
+        }
+        stage('maven build') {
+            steps {
+                sh 'mvn -B -DskipTests clean package'
+            }
+        }
+        stage('testing') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+    }
+}
