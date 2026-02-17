@@ -13,3 +13,6 @@
    53  ssh-keygen -t rsa
    54  cat  /root/.ssh/id_rsa.pub
 ###once you get the public key
+apt install maven
+###once you install maven to make the eefect in jenkins you need to restart the jenkins server
+systemctl restart jenkins
