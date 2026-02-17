@@ -16,3 +16,24 @@
 apt install maven
 ###once you install maven to make the eefect in jenkins you need to restart the jenkins server
 systemctl restart jenkins
+#lets build our first ci pipeline
+pipeline {
+    agent any
+    stages {
+        stage ('code from scm') {
+            steps {
+                echo "geeting code from scm"
+            }
+        }
+        stage('maven build') {
+            steps {
+                echo "maven build"
+            }
+        }
+        stage('testing') {
+            steps {
+                echo "testing"
+            }
+        }
+    }
+}
