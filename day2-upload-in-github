@@ -1,0 +1,15 @@
+###need to be an root user in your linux machine 
+  sudo -i
+  ##once we become root user
+   44  git clone https://github.com/gopal1409/spring-hello.git
+   45  cd spring-hello/
+   46  rm -rf .git
+   47  git config --global user.name "gopal"
+   48  git config --global user.email "gopal1409@gmail.com"
+   49  git init
+   50  git add .
+   51  git commit -m "spring hello app"
+   52  git log
+   53  ssh-keygen -t rsa
+   54  cat  /root/.ssh/id_rsa.pub
+###once you get the public key
