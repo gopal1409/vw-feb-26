@@ -38,3 +38,15 @@ ENTRYPOINT ["java","-jar","/app/app.jar"]
   145  curl localhost:8080/hello
     #if you want to see the test page of the container change the dns name to your linux machine 
     http://lab-as-25382.lc.cl-labs.springpeople.com:8080/hello
+#lets upload the image in the hub.docker.com
+#first we need to rename the image with the docker registry
+149  docker images
+#we will tag the image with the registry name only you need to modify in place of gopal1409 the registry name you can see in hub.docker.com
+  150  docker tag myapp gopal1409/myapp
+  151  docker images
+#lets login inside hub.docker.com fromn the terminal 
+  152  docker login
+###the key better to type it 
+#finally push the new nickname image to hub.dcoker.com
+  153  docker push gopal1409/myapp
+
