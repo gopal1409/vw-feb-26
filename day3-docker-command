@@ -1,0 +1,15 @@
+##we will create our first container
+  docker
+  docker info
+   83  docker container run --publish 80:80 --detach nginx
+     #docker ps will show all the running container docker ps -a will show running and stopped container
+   84  docker ps
+     #this will show the image in your local machine
+   85  docker images
+     #if i try to create a new container with the same image it will not download
+   86  docker container run --publish 81:80 --detach nginx
+   87  docker container run --publish 82:80 --detach httpd
+   88  docker ps
+     #this will show the test page of the cotnainer
+   89  curl localhost:82
+   90  curl localhost:81
