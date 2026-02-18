@@ -13,3 +13,33 @@
      #this will show the test page of the cotnainer
    89  curl localhost:82
    90  curl localhost:81
+#container running as process id
+#press ctrl c to come out of the process id 
+ 94  docker container run --publish 83:80 nginx
+#i terminate the process id
+docker ps -a
+#this will show that the container is in exit state
+#lets check container vs process id
+  99  docker ps
+#we will create a mongo db container
+  100  docker run --name mongo -d mongo
+  101  docker ps
+#top is the linux command which will show all the process id running in your linux system press q
+  102  top
+#docker top will show the mongo db is running as process id 
+  103  docker top mongo
+####ps aux of linux which show all the process id running in your linux system
+  104  ps aux
+  105  docker top mongo
+ 
+  #lets kill the mongo db process id please replace the mongo db process id with your own it from line 33
+  109  kill -9 5859
+#now you cannot see the mongo contianer
+  110  docker ps
+#this will show the mongo container is in exit state
+  111  docker ps -a
+#you can start or stop a container 
+  112  docker start mongo
+  113  docker ps
+  114  docker stop mongo
+
