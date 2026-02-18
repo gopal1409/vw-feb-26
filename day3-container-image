@@ -1,0 +1,40 @@
+#we will build an custom image
+  #lets stop the jenkins server
+  systemctl status jenkins
+  #####lets create the docker file in the root directory of your application folder
+   127  mkdir customimage
+  128  cd customimage/
+  129  git clone https://github.com/gopal1409/spring-hello.git
+  130  cd spring-hello/
+  131  touch dockerfile
+ls
+  #this will show the docker file
+  #inside the dockerfile all the instruction will be provided in capital letter 
+  #lets compile the app which will create the jar file
+  mvn clean package
+ 
+  ############################
+  [root@ip-172-31-101-14 spring-hello]$ ls target/
+classes            generated-test-sources  maven-status                                  spring-boot-2-hello-world-1.0.2-SNAPSHOT.jar.original  test-classes
+generated-sources  maven-archiver          spring-boot-2-hello-world-1.0.2-SNAPSHOT.jar
+  ### ##lets open the docker file using nano editor
+  nano dockerfile
+  #####inside the docker file provide this instruction
+FROM eclipse-temurin:25.0.2_10-jre-noble
+WORKDIR /app
+COPY ./target/spring-boot-2-hello-world-1.0.2-SNAPSHOT.jar /app/app.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","/app/app.jar"]
+####save the file using ctrl x press y and enter 
+  #lets build the image and test it 
+  139  docker build -t myapp .
+#this will show the image you have build
+  141  docker images
+  #from that image we are creating a new container
+  142  docker container run -d -p 8080:8080 myapp
+  143  docker ps
+    #if you want to see the logs 
+  144  docker logs 7a
+  145  curl localhost:8080/hello
+    #if you want to see the test page of the container change the dns name to your linux machine 
+    http://lab-as-25382.lc.cl-labs.springpeople.com:8080/hello
