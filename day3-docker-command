@@ -42,4 +42,9 @@ docker ps -a
   112  docker start mongo
   113  docker ps
   114  docker stop mongo
+#if you try to create another container and expose it using the same port number it will not allowe
+ 118  docker container run --publish 80:80 --detach nginx
+  119  docker network ls
+  120  docker network inspect bridge
+
 
