@@ -1,6 +1,6 @@
 #we will build an custom image
   #lets stop the jenkins server
-  systemctl status jenkins
+  systemctl stop jenkins
   #####lets create the docker file in the root directory of your application folder
    127  mkdir customimage
   128  cd customimage/
