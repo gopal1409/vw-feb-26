@@ -1,0 +1,18 @@
+#lets create our first pod wherever you see my name change it to your name
+90  nano pod-gopal.yml
+apiVersion: v1 #it is fix
+kind: Pod #we are creating a pod 
+metadata: #metadata is the information about the pod
+  name: nginx-gopal #change the name to your name
+spec: #this is the specification of the pod
+  containers: #we define the container in the pod
+  - name: nginx #there will be name of the container
+    image: nginx:1.14.2 #this is the image of the container
+    ports:
+    - containerPort: 80 #
+#this is the port number of your application which is running in the container
+   91  kubectl apply -f pod-gopal.yml
+   92  kubectl get pod
+      #the name you have given in your metadata change it here also in place of gopal you can put your name which you have define in line 6
+   93  kubectl describe pod nginx-gopal
+      #describe pod will give you more information check the event log
