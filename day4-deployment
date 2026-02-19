@@ -63,3 +63,14 @@ status: {}
   137  kubectl -n gopal-dev get svc
 ##once you get the port number use the same dns just replace the port number
 lab-as-25486.lc.cl-labs.springpeople.com:30303
+#lets autoscale and manual scaling
+139  kubectl -n gopal-dev scale deployment my-first-deployment --replicas=5
+  140  kubectl -n gopal-dev get deployment
+  141  kubectl -n gopal-dev get rs
+  142  kubectl -n gopal-dev get pod
+ 
+  145  kubectl -n gopal-dev autoscale deployment my-first-deployment --min=5 --max=10 --cpu=80%
+#this will show the horizontal pod autoscaler
+  146  kubectl -n gopal-dev get hpa
+#####################
+
