@@ -1,0 +1,23 @@
+114  kubectl -n gopal-dev create deployment my-first-deployment
+  #this will give you help how to create the deployment
+  115  kubectl -n gopal-dev create deployment my-first-deployment --help
+#you can generate the manifest file for the deployment 
+  117  kubectl -n gopal-dev create deployment my-first-deployment --image=nginx --replicas=1 --port=80 --dry-run=client -o yaml
+  118  kubectl -n gopal-dev create deployment my-first-deployment --image=nginx --replicas=1 --port=80 --dry-run=client -o yaml > gopal-dep.yml
+  119  cat gopal-dep.yml
+  120  kubectl apply -f gopal-dep.yml
+  #this will not show the deployment as it is looking in default namespace
+  121  kubectl get deploy
+  #this will show the deployment 
+  122  kubectl -n gopal-dev get deploy
+  123  kubectl -n gopal-dev describe deploy
+  124  kubectl -n gopal-dev get deploy
+  #if you see the replicaset is cobination of deployment+a unique hash value for rs
+    126  kubectl -n gopal-dev get rs
+  #if you look into your pod you will find that your pod container dep+rs+pod
+  125  kubectl -n gopal-dev get pod
+##replace the pod id withy your own pod 
+  127  kubectl -n gopal-dev delete pod my-first-deployment-86d5b59c-m5ldl
+  ##once you delete your pod it will come back
+  128  kubectl -n gopal-dev get pod
+  129  cat gopal-dep.yml
