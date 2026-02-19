@@ -72,5 +72,22 @@ lab-as-25486.lc.cl-labs.springpeople.com:30303
   145  kubectl -n gopal-dev autoscale deployment my-first-deployment --min=5 --max=10 --cpu=80%
 #this will show the horizontal pod autoscaler
   146  kubectl -n gopal-dev get hpa
-#####################
+#####################lets update the app with a new image 
+ 149  kubectl -n gopal-dev set image deployment my-first-deployment nginx=nulldevil/phpsysinfo
+#now refresh the web page you will see phpsysinfo website 
+  150  kubectl -n gopal-dev get deploy
+ 150  kubectl -n gopal-dev get rs
+  #this will show the rollout completed or not
+  152  kubectl -n gopal-dev rollout status deploy my-first-deployment
+##if you look into the event log you will see the other pod is going down
+  153  kubectl -n gopal-dev describe deploy my-first-deployment
+#this will show what are the rollout you have
+  154  kubectl -n gopal-dev rollout history deploy my-first-deployment
+#youi can check what is the image you have in revision 1 and 2
+  155  kubectl -n gopal-dev rollout history deploy my-first-deployment --revision=1
+  156  kubectl -n gopal-dev rollout history deploy my-first-deployment --revision=2
+ #ifd you want to go to previous revison you can do undo
+  158  kubectl -n gopal-dev rollout undo deploy my-first-deployment --to-revision=1
+#after doing undo check the page is change back to nginx
+
 
