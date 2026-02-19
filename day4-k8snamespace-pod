@@ -1,0 +1,21 @@
+#this will show all the namespace
+95  kubectl get ns
+  ##below command will show the pod in default namespace
+   96  kubectl get pod
+  #-A will show all the pod in all the namespace
+   97  kubectl get pod -A
+  #lets create our first namespace
+   98  kubectl create ns gopal-dev
+  ##get will show the namespace which we have created
+   99  kubectl get ns gopal-dev
+  100  kubectl describe ns gopal-dev
+  #lets create our first pod in the particular namespace using dry run which will generate the yaml file
+  101  kubectl -n gopal-dev run nginx --image=nginx --port=80 --dry-run=client -o yaml
+  102  kubectl -n gopal-dev run nginx --image=nginx --port=80 --dry-run=client -o yaml > gopal-pod.yml
+  103  cat gopal-pod.yml
+  104  kubectl apply -f gopal-pod.yml
+  #the below commnad will not show you rnginx pod as it is looking into default namespace
+  105  kubectl get pod
+  106  kubectl -n gopal-dev get pod
+  #if you want to know more you can get the help
+  107  kubectl -n gopal-dev run nginx --help
